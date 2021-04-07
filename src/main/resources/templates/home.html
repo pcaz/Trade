@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeLeaf.org">
+   <head>
+      <meta charset = "ISO-8859-1" />
+      <link href = "css/styles.css" rel = "stylesheet"/>
+      <title>Trade</title>
+   </head>
+   <body>
+   <div align="center">
+   	<h3 th:inline="text"> Welcome [[${#httpServletRequest.remoteUser}]]</h3>
+      <h4>Welcome to Trade from user interface</h4>
+      <form th:action="@{logout}" method="post">
+      <input type="submit" value="logout"/>
+      </form>
+      </div>
+   </body>
+</html>

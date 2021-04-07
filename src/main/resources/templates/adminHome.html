@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html xmlns = "http://www.w3.org/1999/xhtml" xmlns:th = "http://www.thymeleaf.org"
+   xmlns:sec = "http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
+<head th:insert="layouts/header::~{}">
+</head> 
+
+<body>
+
+    <div class="wrapper">
+        <!-- Sidebar  -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h3>Trade</h3>
+                <strong>TRD</strong>
+            </div>
+<div sec:authorize="isAuthenticated()">
+    Welcome <b><span sec:authentication="name">Username</span></b>
+<!--   &nbsp;
+    <i><span sec:authentication="principal.authorities">Roles</span></i>
+-->    
+</div>
+            <ul class="list-unstyled">
+                <li class="active">
+                    <a href="#articles" data-toggle="collapse" aria-expanded="false" class="dropdown">
+                        <i class="fas fa-sitemap"></i>
+                        Articles >
+                    </a>
+                    <ul class="collapse list-unstyled components" id="articles">
+                        <li>
+                            <a href="#">Series</a>
+                        </li>
+                        <li>
+                            <a href="#">Articles</a>
+                        </li>
+                        
+                    </ul>
+                </li>
+                <li>
+                    <a href="#users" data-toggle="collapse" aria-expanded="false" class="dropdown">
+                        <i class="fas fa-address-card"></i>
+                        Users >
+                    </a>
+		    <ul class="collapse list-unstyled components" id="users">
+                        <li>
+                            <a href="#">List</a>
+                        </li>
+                        
+						<li>
+                            <a href="#">Profil</a>
+                        </li>
+			<li>
+                            <a href="#">Messages</a>
+                        </li>
+		    </ul>
+		</li>
+		<li>
+                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown">
+                        <i class="fas fa-child"></i>
+                        Publicity >
+                    </a>
+                    <ul class="collapse list-unstyled components" id="pageSubmenu">
+                        <li>
+                            <a href="#">Promotion</a>
+                        </li>
+                        <li>
+                            <a href="#">Loyalty</a>
+                        </li>
+                        <li>
+                            <a href="#">Partner sites</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                     <a href="Payement" data-toggle="collapse" aria-expanded="false" class="dropdown">
+                        <i class="fas fa-credit-card"></i>
+                        Payment >
+                    </a>
+                      
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-question"></i>
+                        FAQ
+                    </a>
+                </li>
+               
+                  
+            </ul>
+
+        </nav>
+        <!-- Bandeau -->
+	<div id="bandeau">
+
+	  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+                    <button type="button" id="sidebarCollapse" class="btn-sm navbar-btn" >
+                      <i class="fas fa-align-center" style="color:#fff;" ></i>
+		      <span> Resize menu </span>
+		    </button>
+	 	    <form th:action="@{logout}" method="post">
+      					<input type="submit" value="logout"/>
+     				  </form>
+     				  
+		</div> <!-- "container-fluid" -->
+	  </nav> <!-- navbar -->
+
+	</div> <!-- bandeau -->
+
+	<!-- Bread Crumb -->
+	<div id="bread-crumb">
+	  <nav aria-label="breadcrumb">
+	    <ol class="breadcrumb">
+	      <li class="breadcrumb-item"><a href="#">Home</a></li>
+	    </ol>
+	  </nav>
+	  
+	</div>
+        <!-- Page Content  -->
+        <div id="content">
+
+        
+            
+        </div>
+    </div>
+    
+   
+
+
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+ 
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+        $('#sidebar,#content,#bandeau, .breadcrumb').toggleClass('inactive');
+<!--	$('.dropdown').toggleClass('dropdown-toggle'); -->
+
+            });
+        });
+    </script>
+
+   </body>
+</html>

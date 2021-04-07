@@ -1,0 +1,12 @@
+HELP.md
+target/
+logs/
+src/main/ressources/static/css/.sass-cache/
+.mvn/
+.settings/
+mvnw*
+.classpath
+.project
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Access denied</title>
+</head>
+<body>
+<h2>Sorry, you don't have permission !</h2>
+<div sec:authorize="isAuthenticated()">
+    Welcome <b><span sec:authentication="name">Username</span></b>
+    <br/>
+    <!--  <i><span sec:authentication="principal.authorities">Roles</span></i> -->
+    <form th:action="@{logout}" method="post">
+      <input type="submit" value="logout"/>
+      </form>
+</div>
+</body>
+</html>
