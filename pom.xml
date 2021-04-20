@@ -9,11 +9,11 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.presence-web</groupId>
-	<artifactId>Tradle</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>Tradle</name>
-	<description>Tradle Project</description>
-	<packaging>jar</packaging>
+	<artifactId>Trade</artifactId>
+	<version>0.1</version>
+	<name>Trade</name>
+	<description>Trade Project</description>
+	<packaging>war</packaging>
 
 	<properties>
 		<java.version>1.8</java.version>
@@ -59,17 +59,27 @@
 			<artifactId>spring-security-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.5</version>
+<!--  -->		</dependency>	
+    	<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
 	</dependencies>
 
 	<build>
 		<plugins>
 			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.4</version>
 				<configuration>
-    			<mainClass>com.presenceweb.MainStandalone</mainClass>
-    			<arguments>
-			    </arguments>
+					<warSourceDirectory>WebContent</warSourceDirectory>
+					<failOnMissingWebXml>false</failOnMissingWebXml>
   				</configuration>
 			</plugin>
 		</plugins>

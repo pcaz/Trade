@@ -155,7 +155,7 @@ a.article:hover {
   right: 0;
   top: 0;
   width: calc(100% -  175px);
-  color: #ffffff;
+  color: black;
   padding: 0px;
   margin: 0px;
   transition: all 0.3s;
@@ -194,15 +194,14 @@ a.article:hover {
   opacity: 0; }
 
 /* Apparition de la bulle avec le scale à 1 */
-/*#bandeau:hover span, #bandeau:focus span{ 
-    transform:scale(1) rotate(0);
-    /* Effet sur la transparence */
- /*     opacity:1;
-      background-color: yellow;
-      color:black;
-     border-radius:10px; 
-  }
-*/
+#bandeau:hover span, #bandeau:focus span {
+  transform: scale(1) rotate(0);
+  /* Effet sur la transparence */
+  opacity: 1;
+  background-color: yellow;
+  color: black;
+  border-radius: 10px; }
+
 #bandeau input[type=submit] {
   height: 30px !important;
   padding: 0px 0px 2px 2px; }
@@ -337,6 +336,7 @@ a.article:hover {
     z-index: 999; }
 
   #bandeau.inactive {
+    /* display: none; */
     position: fixed;
     width: 100%;
     top: 0;
@@ -345,10 +345,14 @@ a.article:hover {
     margin: 0px;
     z-index: 999; }
 
-  					      /* #bandeau.inactive {
-  			   display: none;
-  			   }
-  */
+              /* #bandeau button {
+						display: none;
+                        }
+
+			    #bandeau.inactive button {
+						display: none;
+                        }
+               */
   .breadcrumb {
     position: fixed;
     margin: 50px 0px 10px 0px;

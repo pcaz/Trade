@@ -9,10 +9,11 @@ import com.presenceweb.repository.UserRepository;
 
 public class UserService implements UserDetailsService {
 
-	private final UserRepository userRepository;
+	private UserRepository userRepository;
 	
 	@Autowired
     public UserService(UserRepository userRepository) {
+		super();
         this.userRepository = userRepository;
     }
 	
