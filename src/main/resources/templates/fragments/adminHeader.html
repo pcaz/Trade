@@ -17,14 +17,6 @@
    <!--   <link th:href="/static/css/style.css" rel="stylesheet" />  -->
    <link th:href="@{/css/style.css}" rel="stylesheet" />
      <title>admin</title>
- 
- <!-- jQuery CDN - Slim version (=without AJAX) -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<!-- Popper.JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
-<!-- Bootstrap JS -->
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
- 
 </head>
 
 <body>
@@ -40,11 +32,11 @@
     Welcome <b><span sec:authentication="name">Username</span></b>
   &nbsp;
  <!--    <i><span sec:authentication="principal.authorities">Roles</span></i> -->
+    
 </div> <!-- isAuthenticated -->
-
             <ul class="list-unstyled">
                 <li class="active">
-                    <a href="#articles" data-toggle="collapse" aria-expanded="false" class="dropdown"> 
+                    <a href="#articles" data-toggle="collapse" aria-expanded="false" class="dropdown">
                         <i class="fas fa-sitemap"></i>
                         Articles>
                     </a>
@@ -58,25 +50,25 @@
                         
                     </ul>
                 </li>
-                <li class="active">
-                    <a href="#users" data-toggle="collapse" aria-expanded="false" class="dropdown" id="toto">
+                <li>
+                    <a href="#users" data-toggle="collapse" aria-expanded="false" class="dropdown users">
                         <i class="fas fa-address-card"></i>
                         Users>
                     </a>
 		    <ul class="collapse list-unstyled components" id="users">
                         <li>
-                            <a href="/admin/userList" id="userList">List</a>
+                            <a href="/admin/userlist" id="userlist">List</a>
                         </li>
                         
 						<li>
-                            <a href="/admin/userProfil"id="userProfil" >Profil</a>
+                            <a href="#">Profil</a>
                         </li>
 			<li>
-                            <a href="/admin/userMessage"id="userMessage">Messages</a>
+                            <a href="#">Messages</a>
                         </li>
 		    </ul>
 		</li>
-		<li class="active">
+		<li>
                     <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown">
                         <i class="fas fa-child"></i>
                         Publicity>
@@ -93,7 +85,7 @@
                         </li>
                     </ul>
                 </li>
-                <li class="active">
+                <li>
                      <a href="#payment" data-toggle="collapse" aria-expanded="false" class="dropdown">
                         <i class="fas fa-credit-card"></i>
                         Payment>
@@ -109,7 +101,7 @@
                     </ul>
                       
                 </li>
-                <li class="active">
+                <li>
                     <a href="#">
                         <i class="fas fa-question"></i>
                         FAQ
@@ -133,109 +125,19 @@
 	 	    <form th:action="@{logout}" method="post">
       		  		<input type="submit" value="logout"/>
       		  </form>
-   				  
+     				  
 		</div> <!-- "container-fluid" -->
 	  </nav> <!-- navbar -->
 
 	</div> <!-- bandeau -->
-<!-- Bread Crumb -->
-
+	
+	<!-- Bread Crumb -->
 	<div id="bread-crumb">
 	  <nav aria-label="breadcrumb">
-	    <ol class ="breadcrumb">
-	      <li class="breadcrumb-item"><a href="/admin">Home</a></li>
-	      <div th:switch="${mode}">
-              <div th:case="'userList'">
-                 <li class="breadcrumb-item"><a href="/admin/userList">UserList</a></li>
-               </div>
-	          <div th:case="'userProfil'"> 
-	             <li class="breadcrumb-item"><a href="/admin/userProfil">UserProfile</a></li>
-	           </div>
-	          <div th:case="'userMessage'"> 
-	             <li class="breadcrumb-item"><a href="/admin/userMessage">UserMessage</a></li>
-	          </div>
-	           </div>
-	      
+	    <ol class="breadcrumb">
+	      <li class="breadcrumb-item"><a href="#">Home</a></li>
 	    </ol>
-	  </nav>  
-	</div>	
-
-<!-- <div th:insert="fragments/userList" th:remove="tag"/>  -->
-
-
-<div th:switch="${mode}" th:remove="tag">
-	<div th:case="'userList'" th:insert="fragments/userList" th:remove="tag"/>
-	<div th:case="'userProfil'"th:insert="fragments/userProfil" th:remove="tag"/>
-	<div th:case="'userMessage'"th:insert="fragments/userMessage" th:remove="tag"/>
-	
-<!--     <div th:case="*" th:insert="fragments/userList" th:remove="tag"/>  -->
-</div>
-
-   
-	
-
- </div> <!-- wrapper -->
-    
- 
-
-<!--  <div th:insert="layouts/generalfoot.html::~{}"></div> -->
-
-
-<!-- 
-<block th:switch="${mode}">
- 	<block th:case="'userList'" > 
-<script type="text/javascript">
-$(document).ready(function () {
-	$('#users').attr('class', 'list-unstyled components');
-	$('#userList').css('color', '#555753');
-	$('#userList').css('background', 'white');
-});
-</script>
-</block>
- 	
-	<block th:case="'userProfil'">
-	<script type="text/javascript">
-        $(document).ready(function () {
-        	$('#users').attr('class', 'list-unstyled components');
-        	$('#userProfil').css('color', '#555753');
-        	$('#userProfil').css('background', 'white');
-        });
-</script>
-	 </block>
-	 
-	<block th:case="'userMessage'">
-	<script type="text/javascript">
-        $(document).ready(function () {
-        	$('#users').attr('class', 'list-unstyled components');
-        	$('#userMessage').css('color', '#555753');
-        	$('#userMessage').css('background', 'white');
-        });
-</script>
-</block>
-	<block th:case="*">
-	<script type="text/javascript">
-
-        
-</script>
-</block>
-
-</block>
- -->
- 
-
-       
-
-    <script type="text/javascript">
-        $(document).ready(function () {
-        $('#sidebarCollapse').on('click', function () {
-        $('#sidebar,#content,#bandeau, .breadcrumb').toggleClass('inactive');
-		$('.dropdown').toggleClass('dropdown-toggle');
-		
-            });
-        });
-    </script>
-    
- 
-   </body>
-</html>
- 
+	  </nav>
+	  
+	</div> <!-- Bread Crumb -->
+<!-- wrapper is still open -->

@@ -31,22 +31,25 @@ public class User implements Serializable{
     private String canals;
 	@Column(name="enabled")
 	private Boolean enabled;
-	
+	@Column(name="profiles_id")
+	private Long profile;
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(
             name = "users_roles",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id")
-            )
-    private Set<Role> roles = new HashSet<>();
+   
+    		)
+	 private Set<Role> roles = new HashSet<>();
+	
+	
+	
+	
+
 
 	/***********************************************************************/
 	public Long getId() {
 		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	public String getUsername() {
@@ -95,7 +98,6 @@ public class User implements Serializable{
 	public Boolean isEnabled() {
 		return enabled;
 	}
-
 	public Set<Role> getRoles() {
 		return roles;
 	}
@@ -103,7 +105,11 @@ public class User implements Serializable{
 	public void setRoles(Set<Role> roles) {
 		this.roles = roles;
 	}
-
-	       
-	
+	public Long getProfile() {
+		return profile;
+	}
+/*	public void setProfile(Profile profile) {
+		this.profile = profile;
+	}
+*/
 }

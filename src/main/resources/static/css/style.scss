@@ -277,8 +277,8 @@ a.article:hover {
 ----------------------------------------------------- */
 .breadcrumb {
 	     position: fixed;
-	     margin: 60px 20px 0px 0px;
-	     padding: 0px 0px 2px $size_sidebar+20px;
+	     margin: 80px 0px 20px 0px;
+	     padding: 0px 0px 2px $size_sidebar+10px;
 	     width: 100%;
              background-color: $sidebar_background;
              color: $sidebar_color;
@@ -286,8 +286,8 @@ a.article:hover {
 	     }
 .breadcrumb.inactive {
 	     position: fixed;
-	     margin: 60px 20px 0px 0px;
-	     padding: 0px 0px 0px $size_sidebar_inactive+20px;
+	     margin: 80px 20px 0px 0px;
+	     padding: 0px 0px 2px $size_sidebar_inactive+10px;
 	     width: 100%;
              background-color: $sidebar_background;
              color: $sidebar_color;
@@ -299,10 +299,11 @@ a.article:hover {
   color: #ffffff;
 }
 
-.breadcrumb-item + .breadcrumb-item::before {
-					     content: "/";
-color: #ffffff;
-					     }
+
+.breadcrumb-item::before {
+		content: "/";
+        color: #ffffff;
+}
 
 
 /* ---------------------------------------------------

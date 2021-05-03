@@ -4,21 +4,40 @@ import javax.servlet.ServletContext;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
+import org.springframework.context.annotation.ComponentScan;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.templatemode.TemplateMode;
 import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
 
 
-@SpringBootApplication
-public class TradeApplication extends SpringBootServletInitializer implements CommandLineRunner{
 
+@SpringBootApplication
+
+//public class TradeApplication extends SpringBootServletInitializer implements CommandLineRunner{
+public class TradeApplication  extends SpringBootServletInitializer implements CommandLineRunner{
 	private static final Logger logger = LoggerFactory.getLogger(TradeApplication.class);
-	private TemplateEngine templateEngine;
+//	private TemplateEngine templateEngine;
+
+public static void main(String[] args) {
+		
+		SpringApplication.run(TradeApplication.class, args);
+	}
+
+@Override
+public void run(String... arg0) throws Exception {
+	 logger.warn("Trade application is started");
+	}
+
+@Override
+protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+ return application.sources(TradeApplication.class);
+}
 	
 /*	public TradeApplication(final ServletContext servletContext) {
 		
@@ -43,18 +62,9 @@ public class TradeApplication extends SpringBootServletInitializer implements Co
 	}
 	*/
 	
-    
-	public static void main(String[] args) {
-		
-		SpringApplication.run(TradeApplication.class, args);
-	}
-	@Override
-	   public void run(String... arg0) throws Exception {
-	 logger.warn("Trade application is started");
-	}
+	 
 	
-	 @Override
-	 protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-	  return application.sources(TradeApplication.class);
-	 }
+/*
+ * 	
+	 */
 }
