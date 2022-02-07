@@ -9,6 +9,7 @@
 <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <!--   <base="th:href={@/admin}"/>  -->   
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
@@ -59,20 +60,22 @@
                     </ul>
                 </li>
                 <li class="active">
-                    <a href="#users" data-toggle="collapse" aria-expanded="false" class="dropdown" id="toto">
+                    <a href="#users" data-toggle="collapse" aria-expanded="false" class="dropdown">
                         <i class="fas fa-address-card"></i>
                         Users>
                     </a>
 		    <ul class="collapse list-unstyled components" id="users">
                         <li>
-                            <a href="/admin/userList" id="userList">List</a>
+                            <a th:href="@{admin/userList}" id="userList">List</a>
                         </li>
                         
 						<li>
-                            <a href="/admin/userProfil"id="userProfil" >Profil</a>
+						 <!-- <div th:if=${user.id != null } > </div> -->
+                         <a th:href="@{admin/userProfil}"id="userProfil" >Profil</a>
+                        
                         </li>
-			<li>
-                            <a href="/admin/userMessage"id="userMessage">Messages</a>
+						<li>
+                            <a th:href="@{admin/userMessage}"id="userMessage">Messages</a>
                         </li>
 		    </ul>
 		</li>
