@@ -2,11 +2,11 @@ HELP.md
 target/
 logs/
 src/main/ressources/static/css/.sass-cache/
-.mvn/
-.settings/
+#.mvn/
+#.settings/
 mvnw*
-.classpath
-.project
+#.classpath
+#.project
 !.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
+#!**/src/main/**/target/
+#x!**/src/test/**/target/
